@@ -7,8 +7,10 @@ public class Student {
 	public Student(String name) {
 		//initialize fields
 		this.name = name;
+		// make the field equal to the local variable
 	}
 	public void talk() {
-		System.out.println("Hi, my name is " + name + ".");
+		System.out.println("Hi, my name is " + name);
+		// this helps differentiate between local variables with the same name
 	}
 }
