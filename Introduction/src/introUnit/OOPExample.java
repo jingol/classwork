@@ -22,7 +22,7 @@ public class OOPExample {
 		**/
 		Student joseph = new Sophomore("Joseph", "Software");
 		Student jordan = new Junior("Jordan", "stressed");
-		jillian.talk();
+		((Student)jillian).talk();
 		joseph.talk();
 		jordan.talk();
 	}
