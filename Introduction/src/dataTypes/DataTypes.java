@@ -17,6 +17,7 @@ public class DataTypes {
 		if(42 == 42.0) {
 			System.out.println("42 equals 42.0");
 		}
+		// casts double on an integer so both sides take up the same amt of space
 		double d1 = 4.64;
 		double d2 = 2.0;
 		double d3 = 2.64;
@@ -50,5 +51,14 @@ public class DataTypes {
 		int m = 22;
 		int n = 7;
 		System.out.println("m/n is "+((double)m/n));
+		
+		String k = "10";
+		String t = "2";
+		if (k.compareTo(t) > 0) {
+			System.out.println("Yes");
+		}
+		else {
+			System.out.println("ok");
+		}
 	}
 }

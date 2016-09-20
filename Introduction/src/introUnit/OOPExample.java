@@ -22,7 +22,10 @@ public class OOPExample {
 		**/
 		Student joseph = new Sophomore("Joseph", "Software");
 		Student jordan = new Junior("Jordan", "stressed");
-		((Student)jillian).talk();
+		jillian.talk();
+		// cannot cast an object into a superclass bc that stuff is encapsulated inside its superclass
+		// YOU CANNOT ACCESS A SUPERCLASS FROM A SUBCLASS
+		// ((Student)jillian).talk();
 		joseph.talk();
 		jordan.talk();
 	}
