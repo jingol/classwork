@@ -33,7 +33,7 @@ public class VickiMain {
 				school.talk();
 			}
 			else {
-				print("I'm sorry, I don't understand you.");				
+				print("I'm sorry, I don't understand you.");			
 			}
 		}
 	}
