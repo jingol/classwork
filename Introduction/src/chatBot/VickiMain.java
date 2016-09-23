@@ -1,19 +1,20 @@
-package dataTypes;
+package chatBot;
 
 import java.util.Scanner;
 
-public class StringPractice {
+public class VickiMain {
 	static String user;
 	static Scanner input;
 	static boolean inLoop;
 	static String response;
+	static Topic school;
 	public static void main(String[] args) {
-		createAScanner();
+		createTopics();
 		// demonstrateStringMethods();
-		promptname();
+		promptName();
 		talkForever();
 	}
-	private static void promptname() {
+	private static void promptName() {
 		print("Hello, human. I am a board covered with semiconductors and other such components"
 				+ ". What is your name?");
 		user = input.nextLine();
@@ -27,8 +28,12 @@ public class StringPractice {
 			if (response.indexOf("good") >= 0) {
 				print("I'm so happy you're good.");
 			}
+			else if (response.indexOf("school") >= 0) {
+				inLoop = false;
+				school.talk();
+			}
 			else {
-				print("I'm sorry, I don't understand you.");
+				print("I'm sorry, I don't understand you.");				
 			}
 		}
 	}
@@ -61,27 +66,8 @@ public class StringPractice {
 		String userInput = input.nextLine();
 		print("You typed: " + userInput);
 	}
-	public static void createAScanner() {
+	public static void createTopics() {
 		input = new Scanner(System.in);
+		school = new School();
 	}
-	public static void demonstrateStringMethods() {
-		// String text = new String("Hello World");
-		String text1 = "Hello World"; //shortcut for creating strings, no need for constructor
-		String text2 = "Hello ";
-		String text3 = "World";
-		
-		if (text1.equals(text2 + text3)) {
-			print("These strings are equal.");
-		}
-		else {
-			print(text1);
-			print(text2 + text3);
-		}
-		String word1 = "Aardvark";
-		String word2 = "Zyzzyva";
-		if (word1.compareTo(word2) < 0) {
-			print("word1 comes before word2, lexicographically");
-		}
-	}
-
 }

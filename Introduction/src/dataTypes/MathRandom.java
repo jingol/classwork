@@ -40,6 +40,6 @@ public class MathRandom {
 	}
 //	public static String pickCard() {
 //		Suits[] suits = {"Spades", "Diamonds", "Hearts", "Clubs"};
-//		Ranks[] ranks = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}
+//		Ranks[] ranks = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13"};
 //	}
 }
