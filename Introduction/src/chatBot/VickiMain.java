@@ -25,7 +25,7 @@ public class VickiMain {
 		print("Greetings, " + user + ". How are you?");
 		while(inLoop) {
 			response = getInput();
-			if (response.indexOf("good") >= 0) {
+			if (findKeyword(response, "good", 0)) {
 				print("I'm so happy you're good.");
 			}
 			else if (response.indexOf("school") >= 0) {
@@ -33,9 +33,30 @@ public class VickiMain {
 				school.talk();
 			}
 			else {
-				print("I'm sorry, I don't understand you.");			
+				print("I'm sorry, I don't understand you.");		
 			}
 		}
+	}
+	public static boolean findKeyword(String searchString, String key, int startIndex) {
+		String phrase = searchString.trim();
+		phrase = phrase.toLowerCase();
+		key = key.toLowerCase();
+		int psn = phrase.indexOf(key);
+		while (psn >= 0) {
+			String before = " ";
+			String after = " ";
+			if (psn + key.length() < phrase.length()) {
+				after = phrase.substring(psn + key.length(), psn + key.length() + 1).toLowerCase();
+			}
+			if (psn > 0) {
+			before = phrase.substring(psn - 1, psn).toLowerCase();
+			}
+			if (before.compareTo("a") < 0 && after.compareTo("a") < 0) {
+				return true;
+			}
+			psn = phrase.indexOf(key, psn+1);
+		}
+		return false;
 	}
 	public static String getInput() {
 		return input.nextLine();
