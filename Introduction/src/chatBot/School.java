@@ -10,7 +10,7 @@ public class School implements Topic {
 		while (inSchoolLoop) {
 			VickiMain.print("Tell me about school.");
 			schoolsResponse = VickiMain.getInput();
-			if (schoolsResponse.indexOf("Stop") >= 0) {
+			if (schoolsResponse.indexOf("stop") >= 0) {
 				inSchoolLoop = false;
 				VickiMain.talkForever();
 			}

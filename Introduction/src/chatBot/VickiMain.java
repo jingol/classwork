@@ -8,6 +8,7 @@ public class VickiMain {
 	static boolean inLoop;
 	static String response;
 	static Topic school;
+	static Topic like;
 	public static void main(String[] args) {
 		createTopics();
 		// demonstrateStringMethods();
@@ -25,38 +26,76 @@ public class VickiMain {
 		print("Greetings, " + user + ". How are you?");
 		while(inLoop) {
 			response = getInput();
-			if (findKeyword(response, "good", 0)) {
+			if (findKeyword(response, "good", 0) >= 0) {
 				print("I'm so happy you're good.");
+				print("Greetings, " + user + ". How are you?");
 			}
-			else if (response.indexOf("school") >= 0) {
+			
+			else if (findKeyword(response, "school", 0) >= 0) {
 				inLoop = false;
 				school.talk();
+			}
+			else if (findKeyword(response, "like", 0) >= 0) {
+				inLoop = false;
+				like.talk();
 			}
 			else {
 				print("I'm sorry, I don't understand you.");		
 			}
 		}
 	}
-	public static boolean findKeyword(String searchString, String key, int startIndex) {
+	public static int findKeyword(String searchString, String key, int startIndex) {
 		String phrase = searchString.trim();
+		// trim cuts off spaces at the beginning and end
 		phrase = phrase.toLowerCase();
 		key = key.toLowerCase();
+		// print("The phrase is '" + phrase + "'");
+		// print("The key is '" + key + "'");
 		int psn = phrase.indexOf(key);
+		// print("The position found is " + psn);
+		// searches for the first time the keyword occurs
 		while (psn >= 0) {
 			String before = " ";
 			String after = " ";
 			if (psn + key.length() < phrase.length()) {
 				after = phrase.substring(psn + key.length(), psn + key.length() + 1).toLowerCase();
+				// print("The character after " + key + " is " + after);
 			}
 			if (psn > 0) {
-			before = phrase.substring(psn - 1, psn).toLowerCase();
+				before = phrase.substring(psn - 1, psn).toLowerCase();
+				// print("The character before " + key + " is " + before);
 			}
 			if (before.compareTo("a") < 0 && after.compareTo("a") < 0) {
-				return true;
+				// print(key + " was found at " + psn);
+				if(noNegations(phrase, psn)) {
+					return psn;		
+				}
 			}
 			psn = phrase.indexOf(key, psn+1);
+			// print(key + " was not found. Checking " + psn);
 		}
-		return false;
+		return -1;
+	}
+	private static boolean noNegations(String phrase, int index) {
+		// helper method - method that contributes functionality to another method 
+		// helpful if you need to do something repeatedly
+		// also makes code more readable
+		// private because it is only used by the method it is helping
+		
+		// check for words NO, NOT, NEVER, N'T
+		if (index - 3 >= 0 && phrase.substring(index - 3, index).equals("no ")) {
+			return false;
+		}
+		if (index - 4 >= 0 && phrase.substring(index - 4, index).equals("not ")) {
+			return false;
+		}
+		if (index - 4 >= 0 && phrase.substring(index - 4, index).equals("n't ")) {
+			return false;
+		}
+		if (index - 6 >= 0 && phrase.substring(index - 6, index).equals("never ")) {
+			return false;
+		}
+		return true;
 	}
 	public static String getInput() {
 		return input.nextLine();
@@ -90,5 +129,6 @@ public class VickiMain {
 	public static void createTopics() {
 		input = new Scanner(System.in);
 		school = new School();
+		like = new VickiLike();
 	}
 }
