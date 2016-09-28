@@ -4,7 +4,6 @@ public class VickiLike implements Topic{
 	private boolean inLikeLoop;
 	private String likeResponse; 
 	
-	@Override
 	public void talk() {
 		
 		VickiMain.print("What are some things you like?");
