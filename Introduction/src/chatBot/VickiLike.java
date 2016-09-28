@@ -29,5 +29,11 @@ public class VickiLike implements Topic{
 			}
 		}
 	}
+	public boolean isTriggered(String userInput) {
+		if (VickiMain.findKeyword(userInput, "like", 0) >= 0) {
+			return true;
+		}
+		return false;
+	}
 
 }

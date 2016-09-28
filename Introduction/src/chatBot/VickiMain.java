@@ -31,11 +31,11 @@ public class VickiMain {
 				print("Greetings, " + user + ". How are you?");
 			}
 			
-			else if (findKeyword(response, "school", 0) >= 0) {
+			else if (school.isTriggered(response)) {
 				inLoop = false;
 				school.talk();
 			}
-			else if (findKeyword(response, "like", 0) >= 0) {
+			else if (like.isTriggered(response)) {
 				inLoop = false;
 				like.talk();
 			}

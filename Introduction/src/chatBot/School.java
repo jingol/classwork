@@ -19,4 +19,14 @@ public class School implements Topic {
 
 	}
 
+	@Override
+	public boolean isTriggered(String userInput) {
+		// String[] triggers = {"school", "class", "teacher"};
+		// can use a for loop
+		if (VickiMain.findKeyword(userInput, "school", 0) >= 0) {
+			return true;
+		}
+		return false;
+	}
+
 }
