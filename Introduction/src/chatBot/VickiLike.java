@@ -15,9 +15,9 @@ public class VickiLike implements Topic{
 				String thingsLiked = likeResponse.substring(likePsn + 5);
 				VickiMain.print("You are such an interesting person because you like " + thingsLiked);
 				if(VickiMain.findKeyword(thingsLiked, "school", 0) >= 0) {
-					inLikeLoop = false;
-					VickiMain.school.talk();
-				}
+					 inLikeLoop = false;
+					 VickiMain.school.talk();
+				 }
 				else {
 					inLikeLoop = false;
 					VickiMain.talkForever();

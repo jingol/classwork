@@ -9,6 +9,7 @@ public class VickiMain {
 	static String response;
 	static Topic school;
 	static Topic like;
+	static Topic hello;
 	public static void main(String[] args) {
 		createTopics();
 		// demonstrateStringMethods();
@@ -28,7 +29,7 @@ public class VickiMain {
 			response = getInput();
 			if (findKeyword(response, "good", 0) >= 0) {
 				print("I'm so happy you're good.");
-				print("Greetings, " + user + ". How are you?");
+				print("Tell me something.");
 			}
 			
 			else if (school.isTriggered(response)) {
@@ -38,6 +39,10 @@ public class VickiMain {
 			else if (like.isTriggered(response)) {
 				inLoop = false;
 				like.talk();
+			}
+			else if (hello.isTriggered(response)) {
+				inLoop = false;
+				hello.talk();
 			}
 			else {
 				print("I'm sorry, I don't understand you.");		
@@ -130,5 +135,6 @@ public class VickiMain {
 		input = new Scanner(System.in);
 		school = new School();
 		like = new VickiLike();
+		hello = new VickiHello();
 	}
 }
