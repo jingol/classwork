@@ -24,6 +24,7 @@ public class ArraysMain {
 		// how you iterate (by 2s, backwards, etc)
 		
 		for(boolean b: booleans) {
+			// boolean b: is a declaration
 			System.out.println(b);
 		}
 		// always goes in order, does not keep track of index, but EASIER to type
