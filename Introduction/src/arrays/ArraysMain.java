@@ -4,9 +4,25 @@ public class ArraysMain {
 	public static void main(String[] args) {
 		// how to time
 		long startTime = System.currentTimeMillis();
-		arrayIntroMethod();
+		String[] someStrings = new String[100];
+		populateArray(someStrings);
+		changeString(someStrings[99]);
+		printArray(someStrings);
 		long endTime = System.currentTimeMillis();
 		System.out.println("Completed method in " + (endTime - startTime) + " millesecond(s)");
+	}
+	private static void changeString(String s) {
+		s = "This string has been changed";
+	}
+	private static void printArray(String[] a) {
+		for (String s: a) {
+			System.out.println(s);
+		}
+	}
+	private static void populateArray(String[] a) {
+		for (int i = 0; i < a.length; i++) {
+			a[i] = "value " + (i + 1);
+		}
 	}
 	public static void arrayIntroMethod() {
 		// an array is not an object
@@ -31,9 +47,8 @@ public class ArraysMain {
 		
 		String[] strings1 = {"", "", ""};
 		String[] strings2 = new String[3];
-		// these DO NOT do the same thing
-		for (String s: strings1) {
-			System.out.println(s);
+		for (int i = 0; i < strings2.length; i++) {
+			strings2[i] = "value " + (i + 1);
 		}
 		for (String s: strings2) {
 			System.out.println(s);
