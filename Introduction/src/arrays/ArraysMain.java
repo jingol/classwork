@@ -6,6 +6,7 @@ public class ArraysMain {
 		long startTime = System.currentTimeMillis();
 		String[] someStrings = new String[100];
 		populateArray(someStrings);
+		// changeString(someStrings[99]) - we are passing in an ELEMENT so there is no change being made
 		changeString(someStrings[99]);
 		printArray(someStrings);
 		long endTime = System.currentTimeMillis();
