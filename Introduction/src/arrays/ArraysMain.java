@@ -113,9 +113,7 @@ public class ArraysMain {
 		String name = "";
 		for (int x = 0; x < ranks.length; x++) {
 			for (int b = 0; b < suits.length; b++) {
-				int i = 0;
-				deck[i] = ranks[x] + " of " + suits [b];
-				i++;
+				
 			}
 		}
 		System.out.println(deck);
