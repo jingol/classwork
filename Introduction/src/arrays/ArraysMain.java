@@ -4,13 +4,30 @@ public class ArraysMain {
 	public static void main(String[] args) {
 		// how to time
 		long startTime = System.currentTimeMillis();
+		SampleElement sample = new SampleElement(10);
+		sample.increase();
+		System.out.println("The sample element has a number equal to " + sample.getNumber());
+		// passByValueDemonstration();
+		long endTime = System.currentTimeMillis();
+		System.out.println("Completed method in " + (endTime - startTime) + " millesecond(s)");
+	}
+	private static void passByValueDemonstration() {
 		String[] someStrings = new String[100];
 		populateArray(someStrings);
 		// changeString(someStrings[99]) - we are passing in an ELEMENT so there is no change being made
 		changeString(someStrings[99]);
+		changeArray(someStrings);
+		changeArrayElement(someStrings,99);
 		printArray(someStrings);
-		long endTime = System.currentTimeMillis();
-		System.out.println("Completed method in " + (endTime - startTime) + " millesecond(s)");
+	}
+	private static void changeArrayElement(String[] a, int i) {
+		a[i] = "new item " + (i + 1);
+	}
+	private static void changeArray(String[] a) {
+		a = new String[100];
+		for (int i = 0; i < a.length; i++) {
+			a[i] = "new item " + (i+1);
+		}
 	}
 	private static void changeString(String s) {
 		s = "This string has been changed";
