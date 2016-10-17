@@ -110,12 +110,5 @@ public class ArraysMain {
 		String[] ranks = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"};
 		String[] suits = {"Spades", "Clubs", "Hearts", "Diamonds"};
 		String[] deck = new String[52];
-		String name = "";
-		for (int x = 0; x < ranks.length; x++) {
-			for (int b = 0; b < suits.length; b++) {
-				
-			}
-		}
-		System.out.println(deck);
 	}
 }
