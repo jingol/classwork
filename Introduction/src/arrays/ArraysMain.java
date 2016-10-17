@@ -10,6 +10,10 @@ public class ArraysMain {
 		// passByValueDemonstration();
 		long endTime = System.currentTimeMillis();
 		System.out.println("Completed method in " + (endTime - startTime) + " millesecond(s)");
+		// populateArray();
+		// randomArray();
+		// populateByDice();
+		deckOfCards();
 	}
 	private static void passByValueDemonstration() {
 		String[] someStrings = new String[100];
@@ -71,5 +75,49 @@ public class ArraysMain {
 		for (String s: strings2) {
 			System.out.println(s);
 		}
+	}
+	
+	public static void populateArray() {
+		int[] upToFifty = new int[50];
+		for (int i = 0; i < upToFifty.length; i++) {
+			upToFifty[i] = i+1;
+			System.out.println(upToFifty[i]);
+		}
+	}
+	public static void randomArray() {
+		int ranLength = (int) (Math.random() * 10);
+		if (ranLength <= 2) {
+			ranLength += 2;
+		}
+		int[] ranArray = new int[ranLength];
+		for (int i = 0; i < ranArray.length; i++) {
+			int num = (int)(Math.random() * 100);
+			ranArray[i] = num;
+			System.out.println(ranArray[i]);
+		}
+	}
+	public static void populateByDice() {
+		int[] array = new int[100];
+		for (int i = 0; i < array.length; i++) {
+			int die1 = (int)((Math.random() * 6) + 1);
+			int die2 = (int)((Math.random() * 6) + 1);
+			int total = die1 + die2;
+			array[i] = total;
+			System.out.println(array[i]);
+		}
+	}
+	public static void deckOfCards() {
+		String[] ranks = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"};
+		String[] suits = {"Spades", "Clubs", "Hearts", "Diamonds"};
+		String[] deck = new String[52];
+		String name = "";
+		for (int x = 0; x < ranks.length; x++) {
+			for (int b = 0; b < suits.length; b++) {
+				int i = 0;
+				deck[i] = ranks[x] + " of " + suits [b];
+				i++;
+			}
+		}
+		System.out.println(deck);
 	}
 }
