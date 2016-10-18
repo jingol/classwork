@@ -10,9 +10,9 @@ public class ArraysMain {
 		// passByValueDemonstration();
 		long endTime = System.currentTimeMillis();
 		System.out.println("Completed method in " + (endTime - startTime) + " millesecond(s)");
-		printIntArray(populateArray());
-		printIntArray(randomArray());
-		printIntArray(populateByDice());
+		//printIntArray(populateArray());
+		//printIntArray(randomArray());
+		//printIntArray(populateByDice());
 		print(deckOfCards());
 	}
 	
