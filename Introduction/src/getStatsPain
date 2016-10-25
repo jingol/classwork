@@ -12,11 +12,16 @@ public static double[] getStats(double[] array){
     			stats[1] = array[i];
     		}
     	}
-    	for (int i = 0; i < array.length; i++) {
-    		if (array[i] < stats[2]) {
-    			stats[2] = array[i];
-    		}
-    	}
+    	double min = array[0];
+	 for(int i = 0; i < array.length; i++){
+	         if(array[i] < min){
+	         stats[i] = array[i];
+	         }
+	        if(array.length - 1 == i){
+	         System.out.println("Min:" + stats[2]);
+	         }
+	 
+	 }
     	for (int i = 0; i < array.length; i++) {
     		if (array[i] >= sum/array.length) {
     			aboveCtr++;
